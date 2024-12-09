@@ -8,6 +8,12 @@ use std::sync::Arc;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
+    /*
+        We use `Arc` to wrap `AppState`
+        to provide shared ownership across threads, enabling safe concurrent access.
+        (Each request handler needs access to the shared AppState,
+        but Rust's ownership model requires it to be thread-safe and prevent data races.)
+    */
     let state = Arc::new(AppState::load());
 
     println!("The server is currently listening on localhost:8080.");

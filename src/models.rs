@@ -9,6 +9,7 @@ pub struct Song {
     pub play_count: u64,
 }
 
+// New songs to be added have no `id` or `play_count`.
 #[derive(Debug, Clone, Deserialize)]
 pub struct NewSong {
     pub title: String,
